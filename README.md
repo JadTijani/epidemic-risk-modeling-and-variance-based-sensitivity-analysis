@@ -7,19 +7,15 @@ An advanced computational framework that extends the classical SEIR architecture
 
 The system state is governed by eight coupled non-linear ordinary differential equations:
 
-$$
-\begin{aligned}
-\frac{dS}{dt} &= -\lambda(t)S -\alpha(t)S + \mu(t)L + \omega R - \phi_{vax}(t) + \phi_{evasion}(t) \\
-\frac{dL}{dt} &= \alpha(t)S - \mu(t)L - \eta\lambda(t)L \\
-\frac{dE}{dt} &= \lambda(t)S + \eta\lambda(t)L - \sigma E \\
-\frac{dI}{dt} &= \sigma E - (\gamma + \delta_{eff}(t))I \\
-\frac{dQ}{dt} &= \delta_{eff}(t)I - \gamma_Q Q \\
-\frac{dR}{dt} &= \gamma I + \gamma_Q Q - \omega R + \phi_{vax}(t) - \phi_{evasion}(t) \\
-\frac{dF_{acc}}{dt} &= r_{fatigue}\frac{L}{N} - r_{recov}F_{acc} \\
-\frac{dEcon}{dt} &= C_L\frac{L}{N} + C_I\frac{I}{N}
-\end{aligned}
-$$
-
+```latex
+dS/dt = -λ(t)S - α(t)S + μ(t)L + ωR - φ_vax(t) + φ_evasion(t)
+dL/dt = α(t)S - μ(t)L - ηλ(t)L
+dE/dt = λ(t)S + ηλ(t)L - σE
+dI/dt = σE - (γ + δ_eff(t))I
+dQ/dt = δ_eff(t)I - γ_Q Q
+dR/dt = γI + γ_Q Q - ωR + φ_vax(t) - φ_evasion(t)
+dF_acc/dt = r_fatigue(L/N) - r_recov F_acc
+dEcon/dt = C_L(L/N) + C_I(I/N)
 ## Methodology
 
 * **Global Sensitivity Analysis:** Evaluation of a 12-dimensional parameter space using the Sobol method to decompose output variance, identifying standalone main effects ($S_1$) and high-order parameter couplings ($S_2$).
